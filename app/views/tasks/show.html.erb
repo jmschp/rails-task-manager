@@ -1,4 +1,5 @@
 <h2><%= @task.title %></h2>
 <h3><%= @task.details %></h3>
-<h4><%= @task.completed ? 'Task compelted' : 'Task not compelted' %></h4>
+<h4><%= @task.completed ? 'Task completed' : 'Task not completed' %></h4>
+<%= link_to 'Edit task', tasks_edit_path %><br>
 <%= link_to 'Go back', tasks_path %>
