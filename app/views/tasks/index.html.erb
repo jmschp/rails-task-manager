@@ -6,19 +6,18 @@
     <% end %>
 </ul>
 
+<%= link_to 'Add new task', tasks_new_path %>
 
 <ul>
     <% @tasks.each do |task| %>
-        <li><%= check_box_tag(:status, task.title, task.completed ? :checked : nil) %><%= label_tag(:status, task.title) %></li>
-        <%= link_to %>  
+        <li><%= check_box_tag(task.id, task.completed, checked = task.completed ? true : false, disabled: true) %><%= label_tag(:status, task.title) %></li>
     <% end %>
 </ul>
-
 
 <ul>
     <%= form_tag("#", method: "get") do%>
         <% @tasks.each do |task| %>
-           <li><%= check_box_tag(:status, task.title, task.completed ? :checked : nil) %><%= label_tag(:status, task.title) %></li>
+           <li><%= check_box_tag(task.id, task.completed, checked = task.completed ? true : false, disabled: false) %><%= label_tag(:status, task.title) %></li>
         <% end %>
         <%= submit_tag("Atualizar") %>
     <% end %>
