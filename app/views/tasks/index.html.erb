@@ -1,5 +1,37 @@
+<h2>My tasks</h2>
+
 <ul>
     <% @tasks.each do |task| %>
-        <li><%= task.title %></li>
+    <li><%= link_to task.title, task_path(task) %></li>
     <% end %>
 </ul>
+
+
+<ul>
+    <% @tasks.each do |task| %>
+        <li><%= check_box_tag(:status, task.title, task.completed ? :checked : nil) %><%= label_tag(:status, task.title) %></li>
+        <%= link_to %>  
+    <% end %>
+</ul>
+
+
+<ul>
+    <%= form_tag("#", method: "get") do%>
+        <% @tasks.each do |task| %>
+           <li><%= check_box_tag(:status, task.title, task.completed ? :checked : nil) %><%= label_tag(:status, task.title) %></li>
+        <% end %>
+        <%= submit_tag("Atualizar") %>
+    <% end %>
+</ul>
+
+
+<%# <form action="/action_page.php">
+  <input type="checkbox" name="vehicle1" value="Bike">
+  <label for="vehicle1"> I have a bike</label><br>
+  <input type="checkbox" name="vehicle2" value="Car">
+  <label for="vehicle2"> I have a car</label><br>
+  <input type="checkbox" name="vehicle3" value="Boat" checked>
+  <label for="vehicle3"> I have a boat</label><br><br>
+  <input type="submit" value="Submit">
+</form>
+ %>
